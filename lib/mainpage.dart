@@ -1,4 +1,7 @@
+import 'package:app_test1/mainpages/homescreen.dart';
+import 'package:app_test1/testpage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -11,35 +14,19 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   List<BottomNavigationBarItem> bottomItems = [
     BottomNavigationBarItem(
-      label: '1번',
-      icon: Icon(Icons.favorite),
+      label: '홈',
+      icon: Icon(Icons.home_filled),
     ),
     BottomNavigationBarItem(
-      label: '2번',
-      icon: Icon(Icons.favorite),
-    ),
-    BottomNavigationBarItem(
-      label: '3번',
-      icon: Icon(Icons.favorite),
-    ),
-    BottomNavigationBarItem(
-      label: '4번',
-      icon: Icon(Icons.favorite),
+      label: '더보기',
+      icon: Icon(Icons.linear_scale),
     ),
   ];
 
-  List pages=[
-    Container(
-      child: Center(child: Text("1번입니다")),
-    ),
+  List pages = [
+    HomeScreen(),
     Container(
       child: Center(child: Text("2번입니다")),
-    ),
-    Container(
-      child: Center(child: Text("3번입니다")),
-    ),
-    Container(
-      child: Center(child: Text("4번입니다")),
     ),
   ];
 
@@ -47,7 +34,13 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('메인페이지'),
+        title: GestureDetector(
+          onTap: () {
+            Get.to(TestPage());
+          },
+          child: Text('메인페이지'),
+        ),
+        centerTitle: true,
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

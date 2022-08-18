@@ -26,7 +26,7 @@ class _MainPageState extends State<MainPage> {
   List pages = [
     HomeScreen(),
     Container(
-      child: Center(child: Text("2번입니다")),
+      child: Center(child: Text("2번")),
     ),
   ];
 

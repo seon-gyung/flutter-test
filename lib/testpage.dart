@@ -10,9 +10,10 @@ class TestPage extends StatefulWidget {
 }
 
 class _TestPageState extends State<TestPage> {
+
   FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
-  var name = "뭐지";
+  var name = "??????????????";
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,16 @@ class _TestPageState extends State<TestPage> {
                 height: 100,
               ),
               Text(name),
-              ElevatedButton(onPressed: () {
-
-              }, child: Text("데이터 불러오기"))
+              ElevatedButton(
+                  onPressed: () async {
+                    fireStore.collection('TB_USER').doc().set({
+                      'USER_ID': '282203',
+                      'USER_NAME': '선경',
+                      'USER_PASS': 1234,
+                      'SITE_CODE': ' '
+                    });
+                  },
+                  child: Text("데이터 만들기")),
             ],
           ),
         ),

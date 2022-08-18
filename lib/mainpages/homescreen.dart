@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       child: Center(
         child: Text("홈"),
-      )
+      ),
     );
   }
 }
